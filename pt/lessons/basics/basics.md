@@ -1,5 +1,5 @@
 ---
-version: 1.2.1
+version: 1.3.0
 title: Básico
 ---
 
@@ -13,7 +13,7 @@ Primeiros Passos, tipos básicos e operações básicas.
 
 As instruções para instalação em cada sistema operacional podem ser encontradas em [Elixir-lang.org](http://elixir-lang.org) na aba [Install](http://elixir-lang.org/install.html).
 
-Após instalar o Elixir, você pode facilmente confirmar a versão instalada.
+Após instalar o Elixir, você pode facilmente encontrar a versão instalada.
 
     % elixir -v
     Erlang/OTP {{ site.erlang.OTP }} [erts-{{ site.erlang.erts }}] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
@@ -30,6 +30,8 @@ Para iniciar, executamos `iex`:
 
     Interactive Elixir ({{ site.elixir.version }}) - press Ctrl+C to exit (type h() ENTER for help)
     iex>
+
+Nota: No Windows PowerShell, é necessário executar `iex.bat`.
 
 Podemos testar e digitar algumas expressões simples:
 
@@ -239,7 +241,7 @@ iex> 2 === 2.0
 false
 ```
 
-Uma característica importante de Elixir é que quaisquer dois tipos podem ser comparados; isto é particularmente útil em ordenação. Não precisamos memorizar a ordem de classificação, mas é importante estar ciente de que:
+Uma característica importante do Elixir é que qualquer tipo pode ser comparado; isto é particularmente útil em ordenação. Não precisamos memorizar a ordem de classificação, mas é importante estar ciente de que:
 
 ```elixir
 number < atom < reference < function < port < pid < tuple < map < list < bitstring

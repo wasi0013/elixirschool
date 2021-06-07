@@ -455,7 +455,7 @@
     - translator
   languages:
     - zh-hans
-    
+
 - github: caicaishmily
   name: Chai
   intro:
@@ -515,3 +515,75 @@
     - translator
   languages:
     - ru
+
+- github: artkay
+  name: Artem Kay
+  intro:
+  homepage: https://zelda.dog
+  twitter: artk4y
+  contributions:
+    - translator
+  languages:
+    - ru
+
+- github: TGITS
+  name: Christophe Vaudry
+  intro:
+  homepage: https://tgits.github.io/
+  twitter: _TGITS
+  contributions:
+    - translator
+  languages:
+    - fr
+
+- github: jersearls
+  name: Jeremy Searls
+  intro: I'm an elixir developer at Cars.com living in Kalamazoo, MI
+  twitter: jersearls
+  contributions:
+    - lesson
+  lessons:
+    - Capture operator
+
+- github: jaimeiniesta
+  twitter: JaimeIniestaDev
+  name: Jaime Iniesta
+  intro: Jaime is an Elixir developer based in Spain that works as a remote freelancer for startups, and maintains his own products like the accessibility scraper Rocket Validator. He tries to keep a balance between client work, study and open source, and tries to play guitar as most as possible.
+  contributions:
+    - lesson
+    - translator
+  lessons:
+    - NimblePublisher
+  languages:
+    - es
+
+- github: RTSolo
+  name: Konstantinos Maglaras
+  intro:
+  homepage:
+  twitter: DinosMag
+  contributions:
+    - translator
+  languages:
+    - gr
+
+- github: jangromko
+  name: Jan Gromko
+  intro: I'm Elixir developer at AmberBit and I live in Poland (Białystok/Kraków).
+  twitter: JanGromko
+  contributions:
+    - translator
+  languages:
+    - pl
+
+- github: bartoszgorka
+  name: Bartosz Górka
+  intro:
+    Bartosz is a software engineer looking for challenging problems to solve.
+    He specializes in backend development, emphasizing Domain-Driven Design, Elixir/OTP principles, and modular software design.
+  homepage: https://bartoszgorka.com/
+  twitter: BartoszGorka96
+  contributions:
+    - translator
+  languages:
+    - pl

@@ -68,7 +68,7 @@ config :friends, Friends.Repo,
   database: "friends_repo",
   username: "postgres",
   password: "",
-  hostname: "localhost",
+  hostname: "localhost"
 ```
 
 Ela também gera um módulo chamado `Friends.Repo` em `lib/friends/repo.ex`
@@ -93,7 +93,7 @@ assim que nossa aplicação iniciar.
 def start(_type, _args) do
   # List all child processes to be supervised
   children = [
-    Friends.Repo,
+    Friends.Repo
   ]
 
 ...
@@ -210,7 +210,7 @@ pessoa:
 iex> %Friends.Person{}
 %Friends.Person{
   __meta__: #Ecto.Schema.Metadata<:built, "people">,
-  age: 11,
+  age: 0,
   id: nil,
   name: nil
 }

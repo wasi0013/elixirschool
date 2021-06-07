@@ -51,7 +51,7 @@ For example, if we specify the following counter metric:
 
 ```elixir
 counter(
-  "phoenix.request"
+  "phoenix.request",
   tags: [:request_path]
 )
 ```
@@ -273,39 +273,38 @@ The `Phoenix.Socket` module executes a Telemetry event whenever the socket is co
 ```elixir
 # phoenix/lib/phoenix/socket.ex
 def __connect__(user_socket, map, socket_options) do
-    %{
-      endpoint: endpoint,
-      options: options,
-      transport: transport,
-      params: params,
-      connect_info: connect_info
-    } = map
+  %{
+    endpoint: endpoint,
+    options: options,
+    transport: transport,
+    params: params,
+    connect_info: connect_info
+  } = map
 
-    start = System.monotonic_time()
+  start = System.monotonic_time()
 
-    case negotiate_serializer(Keyword.fetch!(options, :serializer), vsn) do
-      {:ok, serializer} ->
-        result = user_connect(user_socket, endpoint, transport, serializer, params, connect_info)
+  case negotiate_serializer(Keyword.fetch!(options, :serializer), vsn) do
+    {:ok, serializer} ->
+      result = user_connect(user_socket, endpoint, transport, serializer, params, connect_info)
 
-        metadata = %{
-          endpoint: endpoint,
-          transport: transport,
-          params: params,
-          connect_info: connect_info,
-          vsn: vsn,
-          user_socket: user_socket,
-          log: Keyword.get(options, :log, :info),
-          result: result(result),
-          serializer: serializer
-        }
+      metadata = %{
+        endpoint: endpoint,
+        transport: transport,
+        params: params,
+        connect_info: connect_info,
+        vsn: vsn,
+        user_socket: user_socket,
+        log: Keyword.get(options, :log, :info),
+        result: result(result),
+        serializer: serializer
+      }
 
-        duration = System.monotonic_time() - start
-        :telemetry.execute([:phoenix, :socket_connected], %{duration: duration}, metadata)
-        result
+      duration = System.monotonic_time() - start
+      :telemetry.execute([:phoenix, :socket_connected], %{duration: duration}, metadata)
+      result
 
-      :error ->
-        :error
-    end
+    :error ->
+      :error
   end
 end
 ```
@@ -438,13 +437,13 @@ def metrics do
     summary(
       "quantum.repo.query.total_time",
       unit: {:native, :millisecond},
-      tag_values: &__MODULE__.query_metatdata/1,
+      tag_values: &__MODULE__.query_metadata/1,
       tags: [:source, :command]
     )
   ]
 end
 
-def query_metatdata(%{source: source, result: {_, %{command: command}}}) do
+def query_metadata(%{source: source, result: {_, %{command: command}}}) do
   %{source: source, command: command}
 end
 ```
@@ -467,4 +466,4 @@ We simply defined our `Telemetry.Metrics` module, configured it to start up the 
 
 ## Next Up
 
-There's one more flavor of out-of-the-box metrics reporting we'll explore in this series. In our [next post]([Part IV: Erlang VM Measurements with `telemetry_poller`, `TelemetryMetrics` + `TelemetryMetricsStatsd`](https://elixirschool.com/blog/instrumenting-phoenix-with-telemetry-part-four/)), we'll use the `telemetry_poller` Erlang library to emit Erlang VM measurements as Telemetry events and we'll use `Telemetry.Metrics` and `TelemetryMetricsStatsd` to observe and report those events as metrics.
+There's one more flavor of out-of-the-box metrics reporting we'll explore in this series. In our [next post](https://elixirschool.com/blog/instrumenting-phoenix-with-telemetry-part-four/), we'll use the `telemetry_poller` Erlang library to emit Erlang VM measurements as Telemetry events and we'll use `Telemetry.Metrics` and `TelemetryMetricsStatsd` to observe and report those events as metrics.

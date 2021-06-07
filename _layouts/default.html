@@ -6,9 +6,9 @@
 {% assign locale = site.data['locales'][language] %}
 <html lang="{{ language }}{% if locale.lang_country %}-{{ locale.lang_country }}{% endif %}">
 	{% include _head.html %}
-	<body>
+	<body class="is-loading">
     <script type="text/javascript">
-    var $theme = Cookies.get('theme');
+    var $theme = localStorage.getItem('theme');
     if ($theme === 'dark') document.body.classList.add("dark");
     </script>
 		<!-- Wrapper -->
@@ -28,7 +28,7 @@
 		</div>
 		<!-- Scripts -->
 
-    {% asset main.js %}
-		<!--[if lte IE 8]>{% asset ie/respond.min.js %}<script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    {% asset main.js async %}
+		<!--[if lte IE 8]>{% asset ie/respond.min.js async %}<script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	</body>
 </html>
